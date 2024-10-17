@@ -1,8 +1,21 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿<!DOCTYPE html>
+<html>
+
+<body>
+
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">Welcome to JustTip</h1>
+
+    <button id="addEmployeeButton">Add Employee</button>
+
+<script>
+    document.getElementById("addEmployeeButton").onclick = function () {
+        window.location.href = '/Main/Index';  // Redirect to EmployeeController's Index action
+    };
+</script>
+    
 </div>
+</body>
+
+</html>
