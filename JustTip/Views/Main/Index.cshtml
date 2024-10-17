@@ -1,0 +1,10 @@
+﻿@model Employee
+
+<form asp-action="Index" asp-controller="Main">
+    <div>
+        <label for="EmployeeName" class="form-label">Employee Name</label>
+        @Html.EditorFor(x => x.EmployeeName)
+    </div>
+    <button type="submit" class="btn btn-primary">Add Employee</button>
+
+</form>
