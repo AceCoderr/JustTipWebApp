@@ -25,6 +25,11 @@ namespace JustTip.Models
         {
             this.tipCalcStrategy = strategy;
         }
+
+        public List<Employee> GetEmployeesList()
+        {
+            return employees;
+        }
         public List<Employee> AddEmployee(string empName)
         {
             Employee newEmployee = new Employee();

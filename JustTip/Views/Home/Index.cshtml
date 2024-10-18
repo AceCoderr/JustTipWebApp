@@ -6,15 +6,18 @@
 
 <div class="text-center">
     <h1 class="display-4">Welcome to JustTip</h1>
+    <label for="">Username : </label>
+    <input type="text" id="EmployeeName" name="EmployeeName" required />
+    <label for="">Password</label>
+    <input type="password" id="EmployeeName" name="EmployeeName" required />
 
-    <button id="addEmployeeButton">Add Employee</button>
+    <button id="Login">Login</button>
 
 <script>
-    document.getElementById("addEmployeeButton").onclick = function () {
-        window.location.href = '/Main/Index';  // Redirect to EmployeeController's Index action
+    document.getElementById("Login").onclick = function () {
+        window.location.href = '/Main/Index';  // Redirect to MainController's Index action
     };
 </script>
-    
 </div>
 </body>
 

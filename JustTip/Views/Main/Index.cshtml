@@ -1,10 +1,76 @@
-﻿@model Employee
+﻿@model IEnumerable<JustTip.Models.Employee>
 
-<form asp-action="Index" asp-controller="Main">
-    <div>
-        <label for="EmployeeName" class="form-label">Employee Name</label>
-        @Html.EditorFor(x => x.EmployeeName)
-    </div>
-    <button type="submit" class="btn btn-primary">Add Employee</button>
+@{
+    ViewData["Title"] = "Employee Management";
+}
 
+<h2>Employee Management</h2>
+
+<h3>Add Employee</h3>
+<form asp-action="AddEmployee" method="post">
+    <label for="EmployeeName">Name:</label>
+    <input type="text" id="EmployeeName" name="EmployeeName" required />
+    <button type="submit">Add Employee</button>
 </form>
+
+<h2> Create New Roster</h2>
+<form asp-action="CreateRoster" method="post">
+    <label for="rosterName">Roster Name</label>
+    <input type="text" id="rosterName" name="rosterName" required />
+    <button type="submit">Create Roster</button>
+</form>
+
+<h3>Assign Shift to Employee</h3>
+<form asp-action="AssignShift" method="post">
+    <label for="EmployeeName">Employee Name:</label>
+    <select id="EmployeeName" name="EmployeeName" required>
+        @foreach (var employee in Model)
+
+        {
+            <option value="@employee.EmployeeName">@employee.EmployeeName</option>
+        }
+    </select>
+    <br />
+    <label for="startTime">Start Time:</label>
+    <input type="datetime-local" id="startTime" name="startTime" required />
+    <br />
+    <label for="endTime">End Time:</label>
+    <input type="datetime-local" id="endTime" name="endTime" required />
+    <br />
+    <button type="submit">Assign Shift</button>
+</form>
+
+<h3>Distribute Tips</h3>
+<form asp-action="DistributeTips" method="post">
+    <label for="totalTips">Total Tips:</label>
+    <input type="number" step="0.01" id="totalTips" name="totalTips" required />
+    <button type="submit">Distribute Tips</button>
+</form>
+
+<h3>Change Tip Distribution Strategy</h3>
+<form asp-action="ChangeStrategy" method="post">
+    <label>Select Strategy:</label>
+    <select name="strategy">
+        <option value="Proportional">Proportional Distribution</option>
+        <option value="Equal">Equal Distribution</option>
+    </select>
+    <button type="submit">Change Strategy</button>
+</form>
+
+<h3>Employees List</h3>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <th> Total Tip</th>
+    </tr>
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <td>@employee.EmployeeName </td>
+            <td>@employee.EmployeeTotalHoursWorked()</td>
+            <td>@employee.Tips</td>
+        </tr>
+    }
+
+</table>
+

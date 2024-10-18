@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using JustTip.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace JustTip.Controllers
 {
@@ -8,5 +9,6 @@ namespace JustTip.Controllers
         {
             return View();
         }
+        
     }
 }
